@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.GridLayoutManager
@@ -30,15 +33,22 @@ class CartActivity : AppCompatActivity() {
         if(DataServices.cartFoodItemList.isEmpty())
         {
             setUpEmptyCartRecyclerView()
+            BottomSheetBehavior.from(bottom_sheet).apply {
+                peekHeight=0
+            }
         }
         else{
             setUpRecyclerView()
-            val dialogBottomSheet = BottomSheetDialog(this)
-            val view = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
-            dialogBottomSheet.setCancelable(false)
-            dialogBottomSheet.setContentView(view)
-            dialogBottomSheet.show()
-           // setUpBottomSheetRecyclerView()
+            setUpBottomSheetRecyclerView()
+            BottomSheetBehavior.from(bottom_sheet).apply {
+                bottom_sheet.viewTreeObserver.addOnGlobalLayoutListener(
+                    object: ViewTreeObserver.OnGlobalLayoutListener {
+                    override fun onGlobalLayout() {
+                        bottom_sheet.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                        peekHeight = orderBill.top
+                    }
+                })
+            }
         }
     }
 

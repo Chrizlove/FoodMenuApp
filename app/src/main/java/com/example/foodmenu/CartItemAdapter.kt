@@ -45,6 +45,7 @@ class CartItemAdapter(val context: Context,val cartItemsList: List<FoodItem>): R
                     foodItem.quantity+=1
                     quantity?.text = foodItem.quantity.toString()
                 }
+
             }
         }
     }
