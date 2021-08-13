@@ -35,7 +35,7 @@
         android:layout_height="350dp"
         android:background="@drawable/rounded_bottom_sheet"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="50dp"
+        app:behavior_peekHeight="100dp"
         app:layout_behavior="@string/bottom_sheet_behavior">
 
         <include

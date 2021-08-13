@@ -1,5 +1,6 @@
 package com.example.foodmenu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.activity_cart.cartItemRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
+import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.*
 
 class CartActivity : AppCompatActivity() {
     private lateinit var bottomsheetbilladapter: BottomSheetBillAdapter
@@ -48,6 +50,10 @@ class CartActivity : AppCompatActivity() {
                         peekHeight = orderBill.top
                     }
                 })
+            }
+            bottom_sheet.payButton.setOnClickListener{
+                val intent = Intent(this, MapsActivity::class.java)
+                startActivity(intent)
             }
         }
     }
