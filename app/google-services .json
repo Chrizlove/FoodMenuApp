@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:698336495553:android:66ec20a23b472fc178d140",
         "android_client_info": {
-          "package_name": "com.example.foodmenu"
+          "package_name": "com.chrizlove.foodmenu"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "698336495553-l0umjrd0mm74qv0dc2qq1i957di9smfu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.foodmenu",
+            "package_name": "com.chrizlove.foodmenu",
             "certificate_hash": "5e66fea395b20791f7d44a74a3f7fd0ae6a15734"
           }
         },

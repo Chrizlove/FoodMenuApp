@@ -1,4 +1,4 @@
-package com.example.foodmenu
+package com.chrizlove.foodmenu
 
 import org.junit.Test
 

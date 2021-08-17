@@ -1,4 +1,4 @@
-package com.example.foodmenu
+package com.chrizlove.foodmenu
 
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.foodmenu.Services.DataServices
+
 import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
 
 // TODO: Rename parameter arguments, choose names that match

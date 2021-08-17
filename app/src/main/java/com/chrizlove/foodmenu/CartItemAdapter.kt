@@ -1,4 +1,4 @@
-package com.example.foodmenu
+package com.chrizlove.foodmenu
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodmenu.Model.FoodItem
+import com.chrizlove.foodmenu.Model.FoodItem
 
 class CartItemAdapter(val context: Context,val cartItemsList: List<FoodItem>): RecyclerView.Adapter<CartItemAdapter.CartItemViewHolder> (){
     inner class CartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

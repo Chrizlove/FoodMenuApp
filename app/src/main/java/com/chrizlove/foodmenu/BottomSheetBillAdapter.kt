@@ -1,4 +1,4 @@
-package com.example.foodmenu
+package com.chrizlove.foodmenu
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,19 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodmenu.Model.FoodItem
+import com.chrizlove.foodmenu.Model.FoodItem
+
 
 class BottomSheetBillAdapter(val context: Context, val cartItemsList: List<FoodItem>): RecyclerView.Adapter<BottomSheetBillAdapter.BottomSheetBillViewHolder> () {
     inner class BottomSheetBillViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val bottomsheetcardname = itemView?.findViewById<TextView>(R.id.bottomSheetCardName)
         val bottomsheetcardquantity = itemView?.findViewById<TextView>(R.id.bottomSheetCardQuantityValue)
         val bottomsheetcardtotal = itemView?.findViewById<TextView>(R.id.bottomSheetCardTotalAmount)
-        fun bindBillItem(foodItem: FoodItem,context: Context)
+        fun bindBillItem(foodItem: FoodItem, context: Context)
         {
             bottomsheetcardname?.text = foodItem.name
             bottomsheetcardquantity?.text= "x${foodItem.quantity}"
             val totalvalue = (foodItem.quantity)*(foodItem.price.toInt())
-            bottomsheetcardtotal?.text="Total- Rs. ${totalvalue.toString()}"
+            bottomsheetcardtotal?.text="Total- Rs. ${totalvalue}"
         }
     }
 

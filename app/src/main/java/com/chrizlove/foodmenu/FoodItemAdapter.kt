@@ -1,4 +1,4 @@
-package com.example.foodmenu
+package com.chrizlove.foodmenu
 
 import android.content.Context
 import android.util.Log
@@ -9,8 +9,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodmenu.Model.FoodItem
-import com.example.foodmenu.Services.DataServices.cartFoodItemList
+import com.chrizlove.foodmenu.Model.FoodItem
+import com.chrizlove.foodmenu.Services.DataServices.cartFoodItemList
 
 class FoodItemAdapter(val context: Context,val foodItemsList: List<FoodItem>): RecyclerView.Adapter<FoodItemAdapter.FoodItemViewHolder> (){
     inner class FoodItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -25,7 +25,7 @@ class FoodItemAdapter(val context: Context,val foodItemsList: List<FoodItem>): R
         val resourceId = context.resources.getIdentifier(foodItem.image,"drawable", context.packageName)
             foodItemImage?.setImageResource(resourceId)
             foodItemName?.text = foodItem.name
-            foodItemPrice?.text = foodItem.price
+            foodItemPrice?.text = "Rs . ${foodItem.price}"
             addToCartButton?.setOnClickListener{
                 if(addedToCart==false)
                 {

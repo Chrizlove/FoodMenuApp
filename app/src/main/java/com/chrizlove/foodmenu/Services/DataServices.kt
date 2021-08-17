@@ -1,6 +1,6 @@
-package com.example.foodmenu.Services
+package com.chrizlove.foodmenu.Services
 
-import com.example.foodmenu.Model.FoodItem
+import com.chrizlove.foodmenu.Model.FoodItem
 
 object DataServices {
 

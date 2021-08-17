@@ -1,4 +1,4 @@
-package com.example.foodmenu
+package com.chrizlove.foodmenu
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,8 +9,7 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodmenu.Model.FoodItem
-import com.example.foodmenu.Services.DataServices
+import com.chrizlove.foodmenu.Services.DataServices
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.foodcard.*
 
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView() {
-        adapter = FoodItemAdapter(this,DataServices.foodItemsList)
+        adapter = FoodItemAdapter(this, DataServices.foodItemsList)
         val layoutManager = GridLayoutManager(this, 2)
         foodItemRecyclerview.layoutManager= layoutManager
         foodItemRecyclerview.adapter = adapter
