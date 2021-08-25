@@ -1,6 +1,9 @@
 package com.chrizlove.foodmenu.Services
 
+import android.location.Address
+import androidx.lifecycle.LiveData
 import com.chrizlove.foodmenu.Model.FoodItem
+import com.chrizlove.foodmenu.Model.UserAddress
 
 object DataServices {
 
@@ -12,6 +15,10 @@ object DataServices {
         FoodItem("icecream", "Ice Cream","60",1),
         FoodItem("pizza", "Pizza","130",1)
     )
-    var cartFoodItemList = arrayListOf<FoodItem>(
+    var cartFoodItemList = arrayListOf<FoodItem> (
+    )
+    var address = listOf<Address>()
+
+    var userInputAddress= arrayListOf<UserAddress>(
     )
 }

@@ -125,27 +125,29 @@
 
             <ImageView
                 android:id="@+id/couponImage"
-                android:layout_width="86dp"
+                android:layout_width="100dp"
                 android:layout_height="53dp"
+                android:layout_marginEnd="20dp"
                 android:clickable="false"
                 android:src="@drawable/coupon"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/couponImage"
+                app:layout_constraintEnd_toStartOf="@+id/couponButton"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/couponButton"
-                android:layout_width="294dp"
-                android:layout_height="41dp"
+                android:layout_width="246dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="4dp"
                 android:background="#1A707D"
                 android:clickable="false"
                 android:text="Apply Coupon"
                 android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/couponImage"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.263" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

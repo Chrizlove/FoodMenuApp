@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrizlove.foodmenu.Model.FoodItem
+import com.chrizlove.foodmenu.Services.DataServices
 
 class CartItemAdapter(val context: Context,val cartItemsList: List<FoodItem>): RecyclerView.Adapter<CartItemAdapter.CartItemViewHolder> (){
+    private lateinit var bottomsheetbilladapter: BottomSheetBillAdapter
     inner class CartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cartItemImage = itemView?.findViewById<ImageView>(R.id.cartItemImage)
         val cartItemName = itemView?.findViewById<TextView>(R.id.bottomSheetCardName)
@@ -30,6 +33,7 @@ class CartItemAdapter(val context: Context,val cartItemsList: List<FoodItem>): R
               {
                   foodItem.quantity-=1
                   quantity?.text = foodItem.quantity.toString()
+
               }
                 else if(foodItem.quantity==1)
               {
@@ -62,6 +66,7 @@ class CartItemAdapter(val context: Context,val cartItemsList: List<FoodItem>): R
     override fun getItemCount(): Int {
         return cartItemsList.count()
     }
+
 
 }
 

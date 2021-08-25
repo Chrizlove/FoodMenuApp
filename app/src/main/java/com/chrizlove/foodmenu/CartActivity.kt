@@ -19,6 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.activity_cart.cartItemRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.cart_item_card.*
 import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
 import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.*
 
@@ -40,8 +41,8 @@ class CartActivity : AppCompatActivity() {
             }
         }
         else{
-            setUpRecyclerView()
             setUpBottomSheetRecyclerView()
+            setUpRecyclerView()
             BottomSheetBehavior.from(bottom_sheet).apply {
                 bottom_sheet.viewTreeObserver.addOnGlobalLayoutListener(
                     object: ViewTreeObserver.OnGlobalLayoutListener {
@@ -55,7 +56,17 @@ class CartActivity : AppCompatActivity() {
                 val intent = Intent(this, MapsActivity::class.java)
                 startActivity(intent)
             }
+
         }
+
+        //Updating total amount value
+        var totalTextString=0
+        for(billitem in DataServices.cartFoodItemList)
+        {
+            totalTextString+=((billitem.quantity)*(billitem.price.toInt()))
+        }
+        totalText.text = "Total Payable Amount : ${totalTextString.toString()}"
+
     }
 
     private fun setUpBottomSheetRecyclerView() {
@@ -79,7 +90,6 @@ class CartActivity : AppCompatActivity() {
         cartItemRecyclerView.layoutManager= layoutManager
         cartItemRecyclerView.adapter = cartadapter
     }
-
     override fun onResume() {
         super.onResume()
     }

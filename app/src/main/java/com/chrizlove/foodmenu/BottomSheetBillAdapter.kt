@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.chrizlove.foodmenu.Model.FoodItem
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 
-class BottomSheetBillAdapter(val context: Context, val cartItemsList: List<FoodItem>): RecyclerView.Adapter<BottomSheetBillAdapter.BottomSheetBillViewHolder> () {
+class BottomSheetBillAdapter(val context: Context, val cartItemsList: ArrayList<FoodItem>): RecyclerView.Adapter<BottomSheetBillAdapter.BottomSheetBillViewHolder> () {
     inner class BottomSheetBillViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val bottomsheetcardname = itemView?.findViewById<TextView>(R.id.bottomSheetCardName)
         val bottomsheetcardquantity = itemView?.findViewById<TextView>(R.id.bottomSheetCardQuantityValue)
@@ -34,5 +36,11 @@ class BottomSheetBillAdapter(val context: Context, val cartItemsList: List<FoodI
 
     override fun getItemCount(): Int {
         return cartItemsList.count()
+    }
+    public fun updateBill(newCartList: ArrayList<FoodItem>)
+    {
+        cartItemsList.clear()
+        cartItemsList.addAll(newCartList)
+        notifyDataSetChanged()
     }
 }
