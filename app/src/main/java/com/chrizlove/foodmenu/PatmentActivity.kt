@@ -17,5 +17,9 @@ class PatmentActivity : AppCompatActivity() {
             val intent = Intent(this, OrderSuccessActivity::class.java)
             startActivity(intent)
         }
+        creditCard.setOnClickListener {
+            val intent = Intent(this, CardPaymentActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

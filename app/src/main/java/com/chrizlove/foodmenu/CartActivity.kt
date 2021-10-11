@@ -1,27 +1,24 @@
 package com.chrizlove.foodmenu
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
-import android.view.View
-import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.core.widget.NestedScrollView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.chrizlove.foodmenu.Model.FoodItem
 import com.chrizlove.foodmenu.Services.DataServices
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_cart.*
-import kotlinx.android.synthetic.main.activity_cart.cartItemRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.cart_item_card.*
 import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
 import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.*
+
 
 class CartActivity : AppCompatActivity() {
     private lateinit var bottomsheetbilladapter: BottomSheetBillAdapter
@@ -67,9 +64,11 @@ class CartActivity : AppCompatActivity() {
         }
         totalText.text = "Total Payable Amount : ${totalTextString.toString()}"
 
-    }
+        }
 
-    private fun setUpBottomSheetRecyclerView() {
+
+
+private fun setUpBottomSheetRecyclerView() {
         bottomsheetbilladapter = BottomSheetBillAdapter(this, DataServices.cartFoodItemList)
         val layoutManager =  LinearLayoutManager(this)
         val billRecyclerView = findViewById<RecyclerView>(R.id.billRecyclerView)
@@ -90,7 +89,8 @@ class CartActivity : AppCompatActivity() {
         cartItemRecyclerView.layoutManager= layoutManager
         cartItemRecyclerView.adapter = cartadapter
     }
-    override fun onResume() {
-        super.onResume()
-    }
+   //private fun getCartItemsList(): LiveData<ArrayList<FoodItem>> {
+       // return DataServices.cartFoodItemList
+    //}
 }
+

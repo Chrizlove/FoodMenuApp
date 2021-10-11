@@ -62,23 +62,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/successCongs"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <TextView
-                android:id="@+id/successAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/archivo_black"
-                android:gravity="center"
-                android:text="Delivering To-"
-                android:textColor="#FF6D00"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                app:layout_constraintVertical_bias="0.047" />
-
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="160dp"
@@ -90,6 +73,40 @@
                 app:layout_constraintTop_toBottomOf="@+id/successDesc"
                 app:layout_constraintVertical_bias="0.003"
                 app:srcCompat="@drawable/ic_baseline_delivery_dining_24" />
+
+            <TextView
+                android:id="@+id/deliveringText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Delivering To-"
+                android:textColor="#FF6D00"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/addressSuccess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/archivo_black"
+                android:gravity="center"
+                android:textColor="#878787"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deliveringText"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

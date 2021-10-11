@@ -52,21 +52,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        BottomSheetBehavior.from(bottom_sheet).apply {
-            bottom_sheet.viewTreeObserver.addOnGlobalLayoutListener(
-                object: ViewTreeObserver.OnGlobalLayoutListener {
-                    override fun onGlobalLayout() {
-                        bottomsheetmaps.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                        peekHeight = proceedToPayButton.bottom
-                    }
-                })
-        }
+
         proceedToPayButton.setOnClickListener{
-            DataServices.userInputAddress.clear()
-            DataServices.userInputAddress.add(UserAddress(addressLine1.text.toString(),addressLine2.text.toString(),landmark.text.toString()))
-            Log.d("User Address", DataServices.userInputAddress[0].userlandmark)
-            val intent = Intent(this, PatmentActivity::class.java)
-            startActivity(intent)
+            if(addressLine1.text.isEmpty() || addressLine2.text.isEmpty() || landmark.text.isEmpty())
+            {
+               Toast.makeText(this,"Fill all the Fields",Toast.LENGTH_SHORT).show()
+            }
+            else {
+                DataServices.userInputAddress.clear()
+                DataServices.userInputAddress.add(
+                    UserAddress(
+                        addressLine1.text.toString(),
+                        addressLine2.text.toString(),
+                        landmark.text.toString()
+                    )
+                )
+                Log.d("User Address", DataServices.userInputAddress[0].userlandmark)
+                val intent = Intent(this, PatmentActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
@@ -115,6 +119,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 ) // Here 1 represent max location result to returned, by documents it recommended 1 to 5
                 fixedAddress.text =
                     "${DataServices.address[0].locality}, ${DataServices.address[0].adminArea}, ${DataServices.address[0].countryName}"
+                BottomSheetBehavior.from(bottom_sheet).apply {
+                    bottom_sheet.viewTreeObserver.addOnGlobalLayoutListener(
+                        object: ViewTreeObserver.OnGlobalLayoutListener {
+                            override fun onGlobalLayout() {
+                                bottomsheetmaps.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                                peekHeight = proceedToPayButton.bottom
+                            }
+                        })
+                }
             }
             else{
                 Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show()

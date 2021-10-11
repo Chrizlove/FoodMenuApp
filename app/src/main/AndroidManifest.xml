@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodMenu">
         <activity
+            android:name=".CardPaymentActivity"
+            android:exported="true" />
+        <activity
             android:name=".OrderSuccessActivity"
             android:exported="true" />
         <!--
